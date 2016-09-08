@@ -1,6 +1,6 @@
 {
   "name": "Tally",
-  "description": "An app to make requesting and approving PTO and other types of vacation time.",
+  "description": "An app to make requesting and approving PTO and other types of vacation time easier.",
   "env": {
     "SECRET_KEY_BASE": {
       "description": "Secret value used by Rails",
@@ -13,6 +13,14 @@
     "google_client_secret": {
       "description":"The secret for your Google client app. REQUIRED.",
       "value":""
+    },
+    "recipient_email": {
+      "description":"The email address that should be notified when someone requests time off",
+      "value":"pto.approver@example.com"
+    },
+    "sender_email": {
+      "description": "The email address that sends out tally-related emails",
+      "value":"tally@example.com"
     }
   },
   "addons":[

@@ -1,3 +1,3 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: "tally@arcweb.co"
+  default from: ENV['sender_email']
 end
