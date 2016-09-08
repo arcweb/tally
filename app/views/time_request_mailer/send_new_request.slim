@@ -1,0 +1,51 @@
+doctype html
+html
+  head
+    link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+    css:
+      .approve {
+        margin-left: 20px;
+      }
+
+      body {
+        padding-bottom: 20px;
+      }
+
+      .float {
+        float: left;
+        width: 33%;
+      }
+
+  body
+    .container
+      h1 New #{@time_request.display_text} Request
+
+      .float
+        h3 Requested by:
+        p #{@time_request.user.firstname} #{@time_request.user.lastname}
+
+      .float
+        h3 Type:
+        p #{@time_request.display_text}
+
+      - unless @time_request.reason.blank?
+        .float
+          h3 Reason:
+          p #{@time_request.reason}
+
+      div style="clear: both"
+
+      h3 Dates
+      table.table.table-striped
+        tr
+          th Date
+          th Weekday
+          th.text-center Hours
+        - @time_request.requested_days.each do |requested_day|
+          tr 
+            td #{requested_day.date_requested.strftime("%B %e, %Y")}
+            td #{requested_day.date_requested.strftime("%A")}
+            td.text-center #{requested_day.hours_requested}
+      - if @time_request.class == PtoTimeRequest
+          = link_to 'Deny', deny_pto_request_url(@time_request), class: 'deny btn btn-rounded btn-danger small'
+          = link_to 'Approve', approve_pto_request_url(@time_request), class: 'approve btn btn-rounded btn-success small'

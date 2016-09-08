@@ -1,0 +1,36 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+html, body {
+  height: 100%;
+}
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+#main-content {
+  height: 100%;
+
+  > .row {
+    height: 100%;
+
+    > div, user-profile {
+      height: 100%;
+    }
+  }
+}
+
+#main-row {
+  margin-left: 0;
+  margin-right: 0;
+  width: 100%;
+  display: table;
+}
+
+.full-height-column {
+  float: none;
+  display: table-cell;
+  vertical-align: top;
+}

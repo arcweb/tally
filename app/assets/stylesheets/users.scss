@@ -1,0 +1,608 @@
+@import "common";
+
+$profileBackground: #E5E5DA;
+$adminBackground: #6DC080;
+$containerBackground: #F4F4F4;
+
+.alert {
+  display: none;
+
+  .keyword {
+    margin-right: 8px;
+  }
+}
+
+.side-bar {
+  background-color: $sidebarBackground;
+
+  .title {
+    color: white;
+    margin: 30px 0;
+    text-align: center;
+  }
+
+  .menu {
+    padding: 0 10px;
+
+    > li {
+      list-style: none;
+      margin-bottom: 20px;
+      text-align: center;
+
+      > a {
+        display: block;
+        border-radius: 20px;
+        color: $sidebarHighlight;
+        border: 2px solid $sidebarHighlight;
+        background-color: transparent;
+        padding: 8px;
+
+        &.selected, &:hover {
+          background-color: $sidebarHighlight;
+          color: $sidebarBackground;
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.nofications {
+  background-color: #FDFDFD;
+}
+
+.user-profile {
+  background-color: $profileBackground;
+  padding-top: 65px;
+
+  .profile-back-button {
+    padding: 10px 20px;
+    color: #383E3F;
+    border: 2px solid #383E3F;
+    font-size: $smallFont;
+
+    &:hover {
+      background-color: #383E3F;
+      color: #fff;
+
+      &::before {
+        background-image: url('back-arrow-hover.png');
+      }
+    }
+
+    &::before {
+      background-image: url('back-arrow.png');
+      width: 19px;
+      height: 13px;
+      margin-right: 11px;
+      display: inline-block;
+      position: relative;
+      top: 2px;
+      content: '';
+    }
+  }
+
+  .pto-container {
+    margin: 50px auto;
+    position: relative;
+    text-align: center;
+
+    p {
+      display: inline-block;
+      margin-right: 40px;
+      font-size: $smallFont;
+
+      b {
+        margin-left: 6px;
+        font-family: "Montserrat";
+        font-size: $mediumFont;
+      }
+    }
+  }
+
+  .pto-details {
+    background-color: #D5D6CB;
+    padding-bottom: 80px;
+  }
+
+  .user-image {
+    position: absolute;
+    left: 50%;
+    border-radius: 50px;
+    border: 5px solid #E1E2D7;
+    margin-left: -30px;
+    margin-top: -5px;
+  }
+
+  .user-name {
+    margin: 40px;
+    text-align: center;
+    font-size: $largeFont;
+    font-family: "Merriweather";
+    font-weight: bold;
+    color: #202020;
+  }
+
+  .used-pto {
+    background-color: #FDFEF2;
+    text-align: center;
+
+    p {
+      font-size: $mediumFont;
+      color: #5B5B59;
+      margin-bottom: 0;
+      padding-bottom: 8px;
+      padding-top: 6px;
+    }
+
+    b {
+      position: relative;
+      top: 2px;
+      font-size: $exLargeFont;
+      margin-left: 6px;
+      color: #202020;
+      font-family: "Montserrat";
+    }
+  }
+
+  .vacation-days {
+    padding: 0 175px;
+
+    .date-taken {
+      color: #202020;
+    }
+
+    .hours-taken {
+      color: #7B7E7C;
+      text-align: center;
+    }
+
+    tr {
+      text-transform: uppercase;
+      font-family: "Montserrat";
+      font-size: $smallFont;
+
+      &:nth-child(2n) {
+        background-color: #C0C1B6;
+      }
+
+      td {
+        border: none;
+      }
+    }
+  }
+
+  .remaining-pto {
+    background-color: #383E3F;
+    text-align: center;
+
+    p {
+      font-size: $mediumFont;
+      color: #E1E2D7;
+      margin-bottom: 0;
+      padding-bottom: 8px;
+      padding-top: 6px;
+    }
+
+    b {
+      position: relative;
+      top: 2px;
+      font-size: $exLargeFont;
+      margin-left: 6px;
+      color: #fff;
+      font-family: "Montserrat";
+    }
+  }
+
+  .profile-image {
+    display: block;
+    margin: 0 auto;
+    vertical-align: none;
+  }
+}
+
+.admin-sidebar {
+  padding-right: 0;
+
+  .current-date {
+    font-family: "Montserrat";
+    font-weight: bold;
+    font-size: 12px;
+    color: #969A9A;
+    margin-top: 28px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .tally-logo {
+    margin: 0 auto 6px auto;
+    display: block;
+    height: 81px;
+  }
+
+  .employee-label {
+    font-family: "Montserrat";
+    font-size: 10px;
+    font-weight: bold;
+    color: #696C6D;
+    text-transform: uppercase;
+    padding-left: 18px;
+  }
+
+  .user-list {
+    li {
+      background: #262B2B;
+      padding: 0;
+      margin-bottom: 6px;
+
+      .user-thumbnail {
+        border-radius: 50%;
+        margin-left: -30px;
+        margin-right: 10px;
+        border: 4px solid #262B2B;
+        height: 54px;
+        width: 54px;
+      }
+
+      a {
+        color: white;
+        display: block;
+        font-size: 14px;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+    }
+  }
+}
+
+.user-rows {
+  background-color: $adminBackground;
+  padding-left: 0;
+
+  .btn-rounded {
+    font-size: 13px;
+
+    &:hover, &.selected {
+      border-color: #67B378;
+      color: #202020;
+    }
+
+    &.selected {
+      background-color: #67B378;
+    }
+  }
+
+  .user-options {
+    margin-top: 59px;
+    text-align: center; 
+
+    .user-name {
+      font-weight: bold;
+      line-height: 1em;
+      padding: 17px 0;
+      margin: 0;
+    }
+  }
+
+  .vacation-grid {
+    margin-top: 25px;
+    width: 100%;
+    border: 6px solid #67B378;
+    
+    td, th {
+      text-align: center;
+      font-family: "Montserrat";
+    }
+
+    tr {
+      background-color: #86C28F;
+      height: 60px;
+      font-size: 20px;
+      border: 6px solid #67B378;
+
+      &:first-child {
+        background-color: transparent;
+        font-size: inherit;
+        border-top: none;
+        height: 28px;
+        font-weight: bold;
+        font-size: 10px;
+      }
+
+      &.spacer {
+        background-color: $adminBackground;
+        height: 10px;
+      }
+    }
+
+    td {
+      font-size: 16px;
+      font-family: "Montserrat-Light";
+
+      &[class="zero"] {
+        color: #79AC78;
+      }
+
+      &:last-child {
+        font-family: "Montserrat-SemiBold";
+      }
+    }
+
+    th {
+      color: #fff;
+      background-color: #67B378;
+
+      &:last-child {
+        color: #202020;
+      }
+    }
+  }
+}
+
+.submit-request {
+  padding: 0 50px;
+
+  .modal-dialog {
+    width: 800px;
+  }
+
+  h1 {
+    font-size: 18px;
+    margin: 40px 0;
+    font-weight: bold;
+  }
+
+  .modal-header, .modal-body, .modal-footer {
+    border: none;
+  }
+
+  .modal-header {
+    padding: 0;
+  }
+
+  .form-buttons {
+    text-align: right;
+    margin-top: 30px;
+    margin-right: 15px;
+    margin-bottom: 15px;
+
+    .btn:last-child {
+      margin-left: 30px;
+    }
+  }
+
+  .warning-messages {
+    color: #D42444;
+    font-size: 14px;
+    line-height: 1.7em;
+    text-align: left;
+    padding-left: 15px;
+
+    p {
+      display: none;
+    }
+  }
+
+  #requested-dates {
+    padding-left: 15px;
+    margin: 40px 0;
+
+    li {
+      list-style: none;
+      text-align: left;
+      font-family: "Montserrat-Light";
+
+      .delete-request {
+        color: #CDCDCD;
+        margin-right: 18px;
+        font-size: 18px;
+
+        &:hover {
+          text-decoration: none;
+        }
+      }
+
+      .requested-date {
+        font-family: "Montserrat";
+        font-weight: bold;
+      }
+
+      input {
+        margin-right: 6px;
+        margin-left: 30px;
+
+        &:last-child {
+          margin-left: 18px;
+        }
+      }
+    }
+  }
+
+  #time-request-reason {
+    margin-top: 40px;
+    text-align: left;
+
+    textarea {
+      padding: 12px 17px;
+      height: 10em;
+      resize: none;
+
+      &::-webkit-input-placeholder, 
+      &:-moz-placeholder,
+      &::-moz-placeholder,
+      &:-ms-input-placeholder {  
+        font-style: italic; 
+      }
+    }
+  }
+
+  .styled-select {
+    overflow: hidden;
+
+    select {
+      background: transparent;
+      width: 268px;
+      padding: 5px;
+      font-size: 16px;
+      line-height: 1;
+      border: 0;
+      border-radius: 0;
+      height: 34px;
+      -webkit-appearance: none;
+    }
+  }
+}
+
+.notifications {  
+  padding: 0;
+  border-left: 1px solid #B7B7B7;
+
+  h2 {
+    background-color: #E6EAE2;
+    font-family: "Merriweather";
+    font-weight: bold;
+    font-size: 12px;
+    color: #5B5B59;
+    margin: 0;
+    padding: 26px;
+    text-align: center;
+    border-bottom: 1px solid #B7B7B7;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+
+    li {
+      padding: 20px 20px;
+      border-bottom: 1px solid #B7B7B7;
+    }
+  }
+}
+
+.requests {
+  overflow: scroll;
+
+  .type {
+    font-family: "Merriweather";
+    font-weight: bold;
+    font-style: italic;
+    font-size: 11px;
+    background-color: #E6E6E6;
+    padding: 5px 7px;
+    border: none;
+
+    &.PtoTimeRequest {
+      color: #fff;
+      background-color: #D13131;
+    }
+
+    &.RemoteTimeRequest {
+      color: #0F6A44;
+    }
+
+    &.EmergencyTimeRequest {
+      color: #37689F;
+    }
+
+    &.SickTimeRequest {
+      color: #F57D38;
+    }
+
+    &.JuryDutyTimeRequest {
+      color: #8A0043;
+    }
+
+    &.MaPaternityTimeRequest {
+      color: #9091AC;
+    }
+  }
+
+  .user {
+    font-family: "Merriweather";
+    font-weight: bold;
+    font-size: 12px;
+    margin: 0;
+  }
+
+  .since-requested {
+    font-family: "Montserrat";
+    font-size: 9px;
+    color: #a5a5a2;
+  }
+
+  .day {
+    font-family: "Montserrat";
+    font-size: 11px;
+    color: #202020;
+    margin-bottom: 15px;
+  }
+
+  .requested-days {
+    margin-top: 15px;
+  }
+
+  .reason {
+    font-style: italic;
+    font-size: 11px;
+    font-weight: normal;
+    color: #9A9898;
+    font-family: "Merriweather";
+  }
+
+  .pto-request-controls {
+    text-align: center;
+
+    a {
+      font-size: 10px;
+      padding: 6px 17px;
+      color: #696C6D;
+      border-color: #696C6D;
+      border-width: 1px;
+
+      &.deny:hover {
+        color: #D13131;
+        border-color: #D13131;
+      }
+
+      &.approve:hover {
+        color: #0F6A44;
+        border-color: #0F6A44;
+      }
+
+      &:first-child {
+        margin-right: 17px;
+      }
+    }
+  }
+}
+
+editable-field {
+  input {
+    max-width: 35px;
+    text-align: center;
+  }
+}
+
+.archive-user-link {
+  color: red;
+  float: right;
+  margin-right: 20px;
+  top: 3px;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+.user-total {
+  width: 60px;
+  margin: 0 auto;
+}
+
+.user-total-container {
+  max-width: 125px;
+  margin: 0 auto;
+}

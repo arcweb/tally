@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title Vacation Scheduler
+    = stylesheet_link_tag    'application', media: 'all' 
+    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Merriweather:400,700,700italic, 400italic'
+    = stylesheet_link_tag 'https://fonts.googleapis.com/css?family=Montserrat'
+    = stylesheet_link_tag    params[:controller], media: 'all'
+    = yield :stylesheets if content_for? :stylesheets
+    = javascript_include_tag 'application'
+    - if Rails.env.production?
+        = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js'
+    - else
+        = javascript_include_tag 'https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js'
+    = javascript_include_tag params[:controller]
+    = favicon_link_tag "favicon.ico" 
+    = csrf_meta_tags
+  body
+    .container-fluid#main-content
+      .row#main-row
+        = yield 
+        

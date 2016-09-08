@@ -1,0 +1,20 @@
+development:
+  adapter: postgresql
+  database: development
+  username: vagrant
+  password: password
+  encoding: LATIN1
+  pool: 5
+  host: 127.0.0.1
+  port: 5432
+
+test: 
+  adapter: postgresql
+  database: test
+  username: vagrant
+  password: password
+  encoding: LATIN1
+  pool: 5
+  host: 127.0.0.1
+  port: 5432
+

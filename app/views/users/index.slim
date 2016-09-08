@@ -1,0 +1,33 @@
+= render 'admin_sidebar', users: @users
+.user-rows.col-md-8.full-height-column
+  .row.no-margin.user-options
+    .col-md-3
+      = link_to "Dashboard", users_path, class: 'btn-rounded selected small'
+    .col-md-3
+      = render 'submit_request'
+    .col-md-3
+      = link_to "Log Out", destroy_user_session_path, class: 'btn-rounded small'
+    .col-md-3
+      p.user-name Hi, #{current_user.firstname} #{current_user.lastname}
+  table.vacation-grid
+    tr
+      th Jan
+      th Feb
+      th Mar
+      th Apr
+      th May
+      th Jun
+      th Jul
+      th Aug
+      th Sep
+      th Oct
+      th Nov
+      th Dec
+      th Total
+    - @users.each do |user|
+      == row_for_user(user)
+= render 'requests'
+
+= javascript_include_tag 'angular/admin-app'
+= javascript_include_tag 'angular/services/time-request-service'
+= javascript_include_tag 'angular/controllers/admin-notifications-controller'

@@ -1,0 +1,37 @@
+.col-md-8.user-profile.full-height-column ng-app="UserProfile"
+  = render 'layouts/alert'
+  .row
+    .col-md-2.col-md-offset-1.no-padding
+      - if current_user.admin?
+        = link_to "Dashboard", users_path, class: 'profile-back-button btn-rounded'
+  .row
+    .col-md-10.col-md-offset-1.no-padding
+      .pto-container
+        - if current_user.admin?
+          p Annual PTO: <editable-field value="#{user.total_pto}" field="total_pto" id="#{user.id}"></editable-field>
+          p Carry Over: <editable-field value="#{user.carryover_pto}" field="carryover_pto" id="#{user.id}"></editable-field>
+          p Bonus: <editable-field value="#{user.bonus_pto}" field="bonus_pto" id="#{user.id}"></editable-field>
+        - else
+          p Annual PTO: <b>#{user.total_pto}</b>
+          p Carry Over: <b>#{user.carryover_pto}</b>
+          p Bonus: <b>#{user.bonus_pto}</b>
+      .pto-details
+        .row
+          .col-md-6.used-pto
+            p Used PTO: <b>#{user.used_pto}</b>
+          .col-md-6.remaining-pto
+            p Remaining PTO: <b>#{user.remaining_pto}</b>
+          = image_tag user.image, class: 'user-image'
+        h1.user-name #{user.firstname} #{user.lastname}
+        .row.vacation-days
+          table.table
+            - user.vacation_days_for_current_year.each do |vacation_day|
+              tr data-vacation-day-id="#{vacation_day.id}"
+                td.date-taken #{vacation_day.requested_day.date_requested(:long)}
+                td.hours-taken #{vacation_day.requested_day.hours_requested} hours
+                td.request-removal 
+                  = link_to '', cancel_vacation_day_user_path(user, vacation_day), remote: true, method: :delete, class: 'glyphicon glyphicon-remove'
+
+= javascript_include_tag 'angular/user-profile'
+= javascript_include_tag 'angular/services/user-service'
+= javascript_include_tag 'angular/directives/editable-field'

@@ -1,0 +1,9 @@
+.admin-sidebar.side-bar.col-md-2.full-height-column
+  p.current-date #{Date.today.to_formatted_s(:long)}
+  = image_tag 'tally-dashboard-logo', class: 'tally-logo'
+  p.employee-label Employees
+  ul.user-list
+    - users.each do |user|
+      li = link_to user_path(user) do
+        = image_tag user.image, class: 'user-thumbnail'
+        = "#{user.firstname} #{user.lastname}"

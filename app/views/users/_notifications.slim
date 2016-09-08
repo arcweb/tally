@@ -1,0 +1,16 @@
+.col-md-2.notifications.requests.full-height-column
+  h2 Pending Requests
+  ul
+    - pending_requests.each do |time_request|
+      li
+        span.type.pull-right class="#{time_request.class_name}" 
+          =time_request.abbr_text
+        p.user Pending
+        p.since-requested 
+          | Requested #{time_ago_in_words(time_request.created_at)} ago
+        .requested-days
+          - time_request.requested_days.each do |requested_day|
+            p.day 
+              span.date-requested = requested_day.date_requested 
+              span.hours-requested.pull-right 
+                | #{requested_day.hours_requested} hrs

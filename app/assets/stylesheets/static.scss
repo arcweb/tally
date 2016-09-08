@@ -1,0 +1,34 @@
+@import "common";
+
+body {
+  background: $greenBackground;
+}
+
+h1 {
+  margin-bottom: 0;
+}
+
+h2 {
+  margin-top: 0;
+  font-weight: normal;
+}
+
+.container {
+  padding-top: 175px;
+}
+
+.help {
+  color: #0f5A44;
+  border: none;
+  background-color: transparent;
+  display: block;
+  margin: 20px auto;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.tally-logo {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 20px;
+}

@@ -1,0 +1,35 @@
+= link_to "Submit Request", '', class: 'btn-rounded small', data: { submit_request: '' }
+
+.submit-request.modal.fade
+  .modal-dialog
+    .modal-content
+      .modal-header
+        h1 Submit Request
+      .modal-body
+        form.no-padding#time-request-form method="post" action="/time_requests" data-remote="true"
+          .form-group.row
+            .col-md-8
+              = select_tag "time_request[type]", options_for_select(TimeRequest.request_types), class: 'form-control', id: "time-request-type", required: 'true'
+            .col-md-4
+              input.form-control#date-picker type="text" placeholder="Select Day" data-provide="datepicker" data-date-format="yyyy-mm-dd" data-date-days-of-week-disabled="0,6" data-date-start-date="#{Date.today}" maxlength="0"
+          .form-group
+            ul#requested-dates
+            .warning-messages
+              p#sick-warning Please note that the requested date may not be approved because you are submitting after 9am.
+              p#emergency-warning This request will cause you to exceed the annual permitted emergency requests (#{EmergencyTimeRequest.annual_allowance}).
+              p#pto-warning Please note that the requested date may not be approved because you are submitting less than two weeks before the above specified date.
+          .form-group.row#time-request-reason
+            .col-md-12
+              label for="time_request[reason]" Please write the reason for the request <span class="red">(required)</span>:
+              textarea.form-control name="time_request[reason]" placeholder="What is your reason?"
+          .form-buttons
+            button.btn.btn-default data-dismiss="modal" Close
+            = submit_tag 'Submit', class: 'btn btn-primary', data: { time_request_submit: '', disable_with: 'Working...' }, disabled: ''
+
+= javascript_include_tag 'lib/jquery-interdependencies'
+= javascript_include_tag 'lib/moment'
+= javascript_include_tag 'lib/bootstrap-datepicker'
+= stylesheet_link_tag 'bootstrap-datepicker'
+javascript:
+  emergencyRequestsTaken = #{current_user.emergency_requests_taken};
+  emergencyRequestsAllowed = #{EmergencyTimeRequest.annual_allowance};

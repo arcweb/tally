@@ -1,0 +1,72 @@
+// Colors
+// ===============================
+$greenBackground: #81B980;
+$sidebarBackground: #383E3F;
+$sidebarHighlight: #BBBBBB;
+
+// Sizes
+// ===============================
+$smallFont: 12px;
+$mediumFont: 15px;
+$largeFont: 18px;
+$exLargeFont: 24px;
+
+// Fonts
+// ===============================
+@font-face {
+  font-family: 'Montserrat-Light';
+  src:url('Montserrat-Light.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Montserrat-SemiBold';
+  src:url('Montserrat-SemiBold.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+// Styles
+// ===============================
+body {
+  font-family: "Merriweather";
+}
+
+.no-padding {
+  padding: 0;
+
+  .row {
+    margin: 0;
+  }
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.btn-rounded {
+  font-family: "Merriweather";
+  font-size: 14px;
+  display: inline-block;
+  border-radius: 31px;
+  color: #fff;
+  border: 2px solid #fff;
+  background-color: transparent;
+  padding: 20px;
+
+  &.selected, &:hover {
+    background-color: #fff;
+    color: #202020;
+    text-decoration: none;
+    border-color: white;
+  }
+
+  &.small {
+    padding: 13px 33px;
+  }
+}
+
+.red {
+  color: red;
+}

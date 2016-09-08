@@ -1,0 +1,27 @@
+{
+  "name": "Tally",
+  "description": "An app to make requesting and approving PTO and other types of vacation time.",
+  "env": {
+    "SECRET_KEY_BASE": {
+      "description": "Secret value used by Rails",
+      "generator": "secret"
+    },
+    "google_client_id": {
+      "description":"The ID for your Google client app. REQUIRED.",
+      "value":""
+    },
+    "google_client_secret": {
+      "description":"The secret for your Google client app. REQUIRED.",
+      "value":""
+    }
+  },
+  "addons":[
+    "sendgrid:starter",
+    {
+      "plan": "heroku-postgresql",
+      "options": {
+        "version": "9.5"
+      }
+    }
+  ]
+}

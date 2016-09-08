@@ -1,0 +1,6 @@
+- if current_user.admin?
+  = render 'admin_sidebar', users: @users
+- else
+  = render 'sidebar', user: @user
+= render 'profile', user: @user
+= render 'notifications', pending_requests: @user.pending_requests

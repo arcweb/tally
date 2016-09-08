@@ -1,0 +1,14 @@
+.notifications.requests.col-md-2.full-height-column ng-app="Tally" ng-controller="AdminNotificationsController as ctrl"
+  h2 Notifications
+  ul ng-cloak=""
+    li ng-repeat="time_request in ctrl.pending_requests"
+      button.type.pull-right class="{{time_request.class_name}}" ng-bind="time_request.abbr_text" ng-click="ctrl.clearRequest($event, time_request)"
+      p.user <span ng-bind="time_request.user.firstname"></span> <span ng-bind="time_request.user.lastname"></span>
+      p.since-requested <span ng-bind="ctrl.timeAgo(time_request.created_at)"></span>
+      .requested-days
+        div ng-repeat="requested_day in time_request.requested_days"
+          p.day <span class="date-requested" ng-bind="requested_day.date_requested"></span> <span class="hours-requested pull-right"><span ng-bind="requested_day.hours_requested"></span> hrs</span>
+        .pto-request-controls ng-if="ctrl.needsApproval(time_request)"
+          = link_to 'Deny', "/pto_requests/{{time_request.id}}/deny", class: 'deny btn btn-rounded small'
+          = link_to 'Approve', "/pto_requests/{{time_request.id}}/approve", class: 'approve btn btn-rounded small'
+        a.reason href="#" ng-bind="time_request.reason"
